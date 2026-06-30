@@ -41,11 +41,13 @@
 
                 </Grid.ColumnDefinitions>
 
-                <TextBox Grid.Column="0"
-                         Height="40"
-                         Style="{StaticResource ModernTextBox}"
-                         VerticalContentAlignment="Center"
-                         Text=""/>
+                <TextBox
+    x:Name="txtSearch"
+    Grid.Column="0"
+    Height="40"
+    Style="{StaticResource ModernTextBox}"
+    VerticalContentAlignment="Center"
+    TextChanged="txtSearch_TextChanged"/>
 
                 <Button Grid.Column="2"
                         Width="120"

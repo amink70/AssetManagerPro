@@ -86,5 +86,11 @@ namespace AssetManagerPro.Views
             MessageBox.Show("کالا با موفقیت حذف شد.");
             
         }
+        private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            AssetRepository repository = new AssetRepository();
+
+            dgAssets.ItemsSource = repository.Search(txtSearch.Text);
+        }
     }
 }
