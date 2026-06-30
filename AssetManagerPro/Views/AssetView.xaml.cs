@@ -58,5 +58,33 @@ namespace AssetManagerPro.Views
 
             window.ShowDialog();
         }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgAssets.SelectedItem == null)
+            {
+                MessageBox.Show("لطفاً ابتدا یک کالا را انتخاب کنید.");
+                return;
+            }
+
+            AssetDisplay selectedAsset = (AssetDisplay)dgAssets.SelectedItem;
+
+            MessageBoxResult result = MessageBox.Show(
+                $"آیا از حذف کالای '{selectedAsset.Name}' مطمئن هستید؟",
+                "تأیید حذف",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Warning);
+
+            if (result != MessageBoxResult.Yes)
+                return;
+
+            AssetRepository repository = new AssetRepository();
+
+            repository.Delete(selectedAsset.Id);
+            DataContext = new AssetViewModel();
+
+            MessageBox.Show("کالا با موفقیت حذف شد.");
+            
+        }
     }
 }

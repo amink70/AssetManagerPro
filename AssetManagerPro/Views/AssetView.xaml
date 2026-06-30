@@ -35,6 +35,8 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="10"/>
                     <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
 
                 </Grid.ColumnDefinitions>
@@ -56,6 +58,11 @@
         Content="✏️ ویرایش"
         Click="BtnEdit_Click"/>
                 <Button Grid.Column="6"
+        Width="120"
+        Style="{StaticResource ModernButton}"
+        Content="🗑 حذف"
+        Click="BtnDelete_Click"/>
+                <Button Grid.Column="8"
                         Width="120"
                         Style="{StaticResource ModernButton}"
                         Content="🔄 بروزرسانی"/>

@@ -114,7 +114,19 @@ WHERE Id = @Id;";
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using var connection = new SqliteConnection(ConnectionString);
+
+            connection.Open();
+
+            using var command = connection.CreateCommand();
+
+            command.CommandText = @"
+DELETE FROM Assets
+WHERE Id = @Id";
+
+            command.Parameters.AddWithValue("@Id", id);
+
+            command.ExecuteNonQuery();
         }
 
         public Asset? GetById(int id)
