@@ -1,0 +1,42 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- رنگ‌های اصلی -->
+
+    <SolidColorBrush x:Key="PrimaryBrush" Color="#2563EB"/>
+    <SolidColorBrush x:Key="PrimaryDarkBrush" Color="#1E40AF"/>
+    <SolidColorBrush x:Key="PrimaryLightBrush" Color="#DBEAFE"/>
+
+    <!-- رنگ منوی کناری -->
+
+    <SolidColorBrush x:Key="SidebarBrush" Color="#1E293B"/>
+
+    <!-- پس‌زمینه -->
+
+    <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#F3F4F6"/>
+    <SolidColorBrush x:Key="CardBackgroundBrush" Color="White"/>
+
+    <!-- متن -->
+
+    <SolidColorBrush x:Key="TitleBrush" Color="#0F172A"/>
+    <SolidColorBrush x:Key="TextBrush" Color="#334155"/>
+    <SolidColorBrush x:Key="LightTextBrush" Color="#94A3B8"/>
+
+    <!-- دکمه -->
+
+    <SolidColorBrush x:Key="ButtonBrush" Color="#2563EB"/>
+    <SolidColorBrush x:Key="ButtonHoverBrush" Color="#1D4ED8"/>
+    <SolidColorBrush x:Key="ButtonPressedBrush" Color="#1E40AF"/>
+
+    <!-- حاشیه -->
+
+    <SolidColorBrush x:Key="BorderBrushColor" Color="#CBD5E1"/>
+
+    <!-- وضعیت‌ها -->
+
+    <SolidColorBrush x:Key="SuccessBrush" Color="#22C55E"/>
+    <SolidColorBrush x:Key="WarningBrush" Color="#F59E0B"/>
+    <SolidColorBrush x:Key="DangerBrush" Color="#EF4444"/>
+
+</ResourceDictionary>

@@ -1,0 +1,320 @@
+﻿<UserControl x:Class="AssetManagerPro.Views.DashboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="{StaticResource WindowBackgroundBrush}"
+             FlowDirection="RightToLeft">
+
+    <Grid Margin="20">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="170"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="260"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- عنوان -->
+
+        <DockPanel Grid.Row="0"
+                   Margin="0,0,0,15">
+
+            <TextBlock Text="داشبورد"
+                       Style="{StaticResource TitleText}"
+                       DockPanel.Dock="Right"/>
+
+            <TextBlock Text="امروز: 1405/04/05"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Foreground="{StaticResource LightTextBrush}"
+                       FontSize="14"/>
+
+        </DockPanel>
+
+        <!-- کارت های آماری -->
+
+        <UniformGrid Grid.Row="1"
+                     Columns="4"
+                     Margin="0">
+
+            <!-- کارت اول -->
+
+            <Border Style="{StaticResource CardStyle}"
+                    Margin="5">
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="📦"
+                               FontSize="38"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+
+                    <TextBlock Grid.Row="1"
+                               Text="کل اموال"
+                               FontWeight="SemiBold"
+                               FontSize="15"
+                               HorizontalAlignment="Center"
+                               Margin="0,5"/>
+
+                    <TextBlock Grid.Row="2"
+                               Text="152"
+                               FontSize="30"
+                               FontWeight="Bold"
+                               Foreground="{StaticResource PrimaryBrush}"
+                               HorizontalAlignment="Center"
+                               Margin="0,5,0,10"/>
+
+                </Grid>
+
+            </Border>
+
+            <!-- کارت دوم -->
+
+            <Border Style="{StaticResource CardStyle}"
+                    Margin="5">
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="✅"
+                               FontSize="38"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+
+                    <TextBlock Grid.Row="1"
+                               Text="اموال سالم"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"
+                               Margin="0,5"/>
+
+                    <TextBlock Grid.Row="2"
+                               Text="140"
+                               FontSize="30"
+                               FontWeight="Bold"
+                               Foreground="{StaticResource SuccessBrush}"
+                               HorizontalAlignment="Center"
+                               Margin="0,5,0,10"/>
+
+                </Grid>
+
+            </Border>
+            <!-- کارت سوم -->
+
+            <Border Style="{StaticResource CardStyle}"
+                    Margin="5">
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="🔧"
+                               FontSize="38"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+
+                    <TextBlock Grid.Row="1"
+                               Text="در تعمیر"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"
+                               Margin="0,5"/>
+
+                    <TextBlock Grid.Row="2"
+                               Text="8"
+                               FontSize="30"
+                               FontWeight="Bold"
+                               Foreground="{StaticResource WarningBrush}"
+                               HorizontalAlignment="Center"
+                               Margin="0,5,0,10"/>
+
+                </Grid>
+
+            </Border>
+
+            <!-- کارت چهارم -->
+
+            <Border Style="{StaticResource CardStyle}"
+                    Margin="5">
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="❌"
+                               FontSize="38"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+
+                    <TextBlock Grid.Row="1"
+                               Text="اموال خراب"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"
+                               Margin="0,5"/>
+
+                    <TextBlock Grid.Row="2"
+                               Text="4"
+                               FontSize="30"
+                               FontWeight="Bold"
+                               Foreground="{StaticResource DangerBrush}"
+                               HorizontalAlignment="Center"
+                               Margin="0,5,0,10"/>
+
+                </Grid>
+
+            </Border>
+
+        </UniformGrid>
+
+        <!-- بخش اصلی داشبورد -->
+
+        <Grid Grid.Row="3">
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="3*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <!-- آخرین اموال -->
+
+            <Border Grid.Column="0"
+                    Style="{StaticResource CardStyle}">
+
+                <DockPanel>
+
+                    <TextBlock DockPanel.Dock="Top"
+                               Text="آخرین اموال ثبت شده"
+                               FontSize="18"
+                               FontWeight="Bold"
+                               Margin="0,0,0,15"/>
+
+                    <ListView BorderThickness="0">
+
+                        <ListViewItem>💻 لپ تاپ Dell Latitude 5520</ListViewItem>
+                        <ListViewItem>🖥 مانیتور LG 24 Inch</ListViewItem>
+                        <ListViewItem>🖨 پرینتر HP LaserJet Pro</ListViewItem>
+                        <ListViewItem>⌨ کیبورد Logitech MX Keys</ListViewItem>
+                        <ListViewItem>🖱 ماوس Logitech MX Master</ListViewItem>
+
+                    </ListView>
+
+                </DockPanel>
+
+            </Border>
+
+            <!-- نمودار -->
+
+            <Border Grid.Column="2"
+                    Style="{StaticResource CardStyle}">
+                <DockPanel>
+
+                    <TextBlock DockPanel.Dock="Top"
+                               Text="وضعیت اموال"
+                               FontSize="18"
+                               FontWeight="Bold"
+                               Margin="0,0,0,20"/>
+
+                    <StackPanel Margin="15">
+
+                        <!-- سالم -->
+
+                        <TextBlock Text="اموال سالم"
+                                   FontWeight="SemiBold"/>
+
+                        <ProgressBar Height="18"
+                                     Value="92"
+                                     Maximum="100"
+                                     Margin="0,5,0,15"/>
+
+                        <!-- در تعمیر -->
+
+                        <TextBlock Text="در تعمیر"
+                                   FontWeight="SemiBold"/>
+
+                        <ProgressBar Height="18"
+                                     Value="6"
+                                     Maximum="100"
+                                     Margin="0,5,0,15"/>
+
+                        <!-- خراب -->
+
+                        <TextBlock Text="اموال خراب"
+                                   FontWeight="SemiBold"/>
+
+                        <ProgressBar Height="18"
+                                     Value="2"
+                                     Maximum="100"
+                                     Margin="0,5,0,20"/>
+
+                        <TextBlock Text="آمار بر اساس آخرین اطلاعات ثبت شده"
+                                   HorizontalAlignment="Center"
+                                   Foreground="{StaticResource LightTextBrush}"
+                                   FontStyle="Italic"/>
+
+                    </StackPanel>
+
+                </DockPanel>
+
+            </Border>
+
+        </Grid>
+
+        <!-- فعالیت های اخیر -->
+
+        <Border Grid.Row="5"
+                Style="{StaticResource CardStyle}">
+
+            <DockPanel>
+
+                <TextBlock DockPanel.Dock="Top"
+                           Text="آخرین فعالیت‌ها"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           Margin="0,0,0,15"/>
+
+                <ListView BorderThickness="0">
+
+                    <ListViewItem>🟢 لپ تاپ Dell ثبت شد.</ListViewItem>
+
+                    <ListViewItem>🟡 وضعیت پرینتر HP به "در تعمیر" تغییر کرد.</ListViewItem>
+
+                    <ListViewItem>🔵 کاربر Admin وارد سیستم شد.</ListViewItem>
+
+                    <ListViewItem>🟢 گزارش اموال تهیه شد.</ListViewItem>
+
+                    <ListViewItem>🟣 نسخه پشتیبان ایجاد شد.</ListViewItem>
+
+                </ListView>
+
+            </DockPanel>
+
+        </Border>
+
+    </Grid>
+
+</UserControl>
+    
+   

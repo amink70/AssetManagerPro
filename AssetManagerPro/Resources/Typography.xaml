@@ -1,0 +1,76 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:System="clr-namespace:System;assembly=mscorlib">
+    
+    <!-- فونت پیش فرض برنامه -->
+
+    <FontFamily x:Key="AppFont">
+        Segoe UI
+    </FontFamily>
+
+    <!-- اندازه فونت -->
+
+    <System:Double x:Key="TitleFontSize">28</System:Double>
+
+    <System:Double x:Key="SubTitleFontSize">22</System:Double>
+
+    <System:Double x:Key="NormalFontSize">15</System:Double>
+
+    <System:Double x:Key="SmallFontSize">13</System:Double>
+
+    <!-- عنوان اصلی -->
+
+    <Style x:Key="TitleText"
+           TargetType="TextBlock">
+
+        <Setter Property="FontFamily"
+                Value="{StaticResource AppFont}"/>
+
+        <Setter Property="FontSize"
+                Value="{StaticResource TitleFontSize}"/>
+
+        <Setter Property="FontWeight"
+                Value="Bold"/>
+
+        <Setter Property="Foreground"
+                Value="{StaticResource TitleBrush}"/>
+
+    </Style>
+
+    <!-- زیرعنوان -->
+
+    <Style x:Key="SubTitleText"
+           TargetType="TextBlock">
+
+        <Setter Property="FontFamily"
+                Value="{StaticResource AppFont}"/>
+
+        <Setter Property="FontSize"
+                Value="{StaticResource SubTitleFontSize}"/>
+
+        <Setter Property="FontWeight"
+                Value="SemiBold"/>
+
+        <Setter Property="Foreground"
+                Value="{StaticResource TextBrush}"/>
+
+    </Style>
+
+    <!-- متن معمولی -->
+
+    <Style x:Key="NormalText"
+           TargetType="TextBlock">
+
+        <Setter Property="FontFamily"
+                Value="{StaticResource AppFont}"/>
+
+        <Setter Property="FontSize"
+                Value="{StaticResource NormalFontSize}"/>
+
+        <Setter Property="Foreground"
+                Value="{StaticResource TextBrush}"/>
+
+    </Style>
+
+</ResourceDictionary>
