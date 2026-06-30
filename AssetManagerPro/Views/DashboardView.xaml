@@ -53,10 +53,14 @@
 
                     </Grid.RowDefinitions>
 
-                    <TextBlock Text="📦"
-                               FontSize="38"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"/>
+                    <TextBlock
+    Grid.Row="2"
+    Text="{Binding TotalAssets}"
+    FontSize="30"
+    FontWeight="Bold"
+    Foreground="{StaticResource PrimaryBrush}"
+    HorizontalAlignment="Center"
+    Margin="0,5,0,10"/>
 
                     <TextBlock Grid.Row="1"
                                Text="کل اموال"
@@ -66,7 +70,7 @@
                                Margin="0,5"/>
 
                     <TextBlock Grid.Row="2"
-                               Text="152"
+                               Text="{Binding TotalAssets}"
                                FontSize="30"
                                FontWeight="Bold"
                                Foreground="{StaticResource PrimaryBrush}"
@@ -102,7 +106,7 @@
                                Margin="0,5"/>
 
                     <TextBlock Grid.Row="2"
-                               Text="140"
+                               Text="{Binding HealthyAssets}"
                                FontSize="30"
                                FontWeight="Bold"
                                Foreground="{StaticResource SuccessBrush}"
@@ -137,7 +141,7 @@
                                Margin="0,5"/>
 
                     <TextBlock Grid.Row="2"
-                               Text="8"
+                               Text="{Binding RepairAssets}"
                                FontSize="30"
                                FontWeight="Bold"
                                Foreground="{StaticResource WarningBrush}"
@@ -173,7 +177,7 @@
                                Margin="0,5"/>
 
                     <TextBlock Grid.Row="2"
-                               Text="4"
+                               Text="{Binding BrokenAssets}"
                                FontSize="30"
                                FontWeight="Bold"
                                Foreground="{StaticResource DangerBrush}"
@@ -211,15 +215,32 @@
                                FontWeight="Bold"
                                Margin="0,0,0,15"/>
 
-                    <ListView BorderThickness="0">
+                    <ListView ItemsSource="{Binding LatestAssets}"
+          BorderThickness="0">
 
-                        <ListViewItem>💻 لپ تاپ Dell Latitude 5520</ListViewItem>
-                        <ListViewItem>🖥 مانیتور LG 24 Inch</ListViewItem>
-                        <ListViewItem>🖨 پرینتر HP LaserJet Pro</ListViewItem>
-                        <ListViewItem>⌨ کیبورد Logitech MX Keys</ListViewItem>
-                        <ListViewItem>🖱 ماوس Logitech MX Master</ListViewItem>
+    <ListView.ItemTemplate>
+        <DataTemplate>
+            <StackPanel Orientation="Horizontal">
 
-                    </ListView>
+                <TextBlock Text="📦 "
+                           FontSize="16"/>
+
+                <TextBlock Text="{Binding AssetCode}"
+                           FontWeight="Bold"/>
+
+                <TextBlock Text=" - "/>
+
+                <TextBlock Text="{Binding Name}"/>
+
+            </StackPanel>
+        </DataTemplate>
+    </ListView.ItemTemplate>
+
+</ListView>
+
+
+                    
+                    
 
                 </DockPanel>
 
