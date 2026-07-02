@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="AssetManagerPro.Views.Dashboard.RecentActivities"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Border Style="{StaticResource CardStyle}">
+
+        <DockPanel Margin="15">
+
+            <TextBlock DockPanel.Dock="Top"
+                       Text="آخرین فعالیت‌ها"
+                       FontSize="18"
+                       FontWeight="Bold"
+                       Margin="0,0,0,15"/>
+
+            <ListView BorderThickness="0">
+
+                <ListViewItem>ثبت لپ‌تاپ Dell</ListViewItem>
+
+                <ListViewItem>تغییر وضعیت پرینتر HP</ListViewItem>
+
+                <ListViewItem>ورود مدیر سیستم</ListViewItem>
+
+                <ListViewItem>ثبت مانیتور LG</ListViewItem>
+
+                <ListViewItem>تهیه گزارش اموال</ListViewItem>
+
+            </ListView>
+
+        </DockPanel>
+
+    </Border>
+
+</UserControl>

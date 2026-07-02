@@ -17,5 +17,10 @@
         public int TotalLocations { get; set; }
 
         public int TotalReceivers { get; set; }
+        public double HealthyPercent { get; set; }
+
+        public double RepairPercent { get; set; }
+
+        public double BrokenPercent { get; set; }
     }
 }

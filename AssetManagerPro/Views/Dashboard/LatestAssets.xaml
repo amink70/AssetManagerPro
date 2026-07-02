@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="AssetManagerPro.Views.Dashboard.LatestAssets"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Border Style="{StaticResource CardStyle}">
+
+        <DockPanel Margin="15">
+
+            <TextBlock DockPanel.Dock="Top"
+                       Text="آخرین اموال ثبت شده"
+                       FontSize="18"
+                       FontWeight="Bold"
+                       Margin="0,0,0,15"/>
+
+            <ListView ItemsSource="{Binding LatestAssets}"
+                      BorderThickness="0">
+
+                <ListView.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <StackPanel Orientation="Horizontal">
+
+                            <TextBlock Text="📄"
+                                       FontSize="16"
+                                       Margin="0,0,8,0"/>
+
+                            <TextBlock Text="{Binding AssetCode}"
+                                       FontWeight="Bold"/>
+
+                            <TextBlock Text=" - "/>
+
+                            <TextBlock Text="{Binding Name}"/>
+
+                        </StackPanel>
+
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+        </DockPanel>
+
+    </Border>
+
+</UserControl>

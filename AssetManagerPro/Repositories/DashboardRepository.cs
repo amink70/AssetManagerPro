@@ -6,12 +6,6 @@ namespace AssetManagerPro.Repositories
     public class DashboardRepository : BaseRepository
     {
         
-
-       
-        
-
-        
-
         
         public List<AssetDisplay> GetLatestAssets()
         {
@@ -108,6 +102,17 @@ WHERE StatusId = (
                 statistics.BrokenAssets = Convert.ToInt32(command.ExecuteScalar());
             }
 
+            if (statistics.TotalAssets > 0)
+            {
+                statistics.HealthyPercent =
+                    statistics.HealthyAssets * 100.0 / statistics.TotalAssets;
+
+                statistics.RepairPercent =
+                    statistics.RepairAssets * 100.0 / statistics.TotalAssets;
+
+                statistics.BrokenPercent =
+                    statistics.BrokenAssets * 100.0 / statistics.TotalAssets;
+            }
             return statistics;
         }
 
