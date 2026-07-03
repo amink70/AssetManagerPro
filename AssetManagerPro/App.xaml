@@ -8,13 +8,14 @@
         <ResourceDictionary>
 
             <ResourceDictionary.MergedDictionaries>
-
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml"/>
                 <ResourceDictionary Source="Resources/Colors.xaml"/>
                 <ResourceDictionary Source="Resources/ButtonStyles.xaml"/>
                 <ResourceDictionary Source="Resources/Typography.xaml"/>
                 <ResourceDictionary Source="Resources/CardStyles.xaml"/>
                 <ResourceDictionary Source="Resources/TextBoxStyles.xaml"/>
-                
+                <ResourceDictionary Source="Resources/ControlStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
         </ResourceDictionary>

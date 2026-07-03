@@ -52,7 +52,7 @@
         <Grid Grid.Column="1"
       Margin="20">
 
-            <views:DashboardView/>
+            <views:AssetManagementView/>
 
         </Grid>
 

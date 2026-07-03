@@ -73,10 +73,11 @@
             <ProgressBar
     Grid.Row="2"
     Grid.ColumnSpan="2"
-    Height="16"
+    Style="{StaticResource ModernProgressBar}"
+    Foreground="{StaticResource SuccessBrush}"
     Maximum="100"
-    Value="{Binding HealthyPercent}"
-    Margin="0,6,0,0"/>
+    Value="{Binding HealthyPercent}"/>
+
             <!-- در تعمیر -->
 
             <StackPanel Grid.Row="4"
@@ -102,12 +103,14 @@
            HorizontalAlignment="Left"
            VerticalAlignment="Center"/>
 
-            <ProgressBar Grid.Row="5"
-             Grid.ColumnSpan="2"
-             Height="16"
-             Maximum="100"
-             Value="{Binding RepairPercent}"
-             Margin="0,6,0,0"/>
+            <ProgressBar
+    Grid.Row="5"
+    Grid.ColumnSpan="2"
+    Style="{StaticResource ModernProgressBar}"
+    Foreground="{StaticResource WarningBrush}"
+    Maximum="100"
+    Value="{Binding RepairPercent}"/>
+
             <!-- اموال خراب -->
 
             <StackPanel Grid.Row="7"
@@ -133,12 +136,13 @@
            HorizontalAlignment="Left"
            VerticalAlignment="Center"/>
 
-            <ProgressBar Grid.Row="8"
-             Grid.ColumnSpan="2"
-             Height="16"
-             Maximum="100"
-             Value="{Binding BrokenPercent}"
-             Margin="0,6,0,0"/>
+            <ProgressBar
+    Grid.Row="8"
+    Grid.ColumnSpan="2"
+    Style="{StaticResource ModernProgressBar}"
+    Foreground="{StaticResource DangerBrush}"
+    Maximum="100"
+    Value="{Binding BrokenPercent}"/>
 
 
 
