@@ -34,6 +34,77 @@ namespace AssetManagerPro.Repositories
 
             return brands;
         }
+        public void Add(Brand brand)
+        {
+            using var connection = new SqliteConnection(ConnectionString);
+
+            connection.Open();
+
+            using var command = connection.CreateCommand();
+
+            command.CommandText = @"
+INSERT INTO Brands
+(
+    Name,
+    Description
+)
+VALUES
+(
+    @Name,
+    @Description
+);";
+
+            command.Parameters.AddWithValue("@Name", brand.Name);
+            command.Parameters.AddWithValue("@Description",
+                (object?)brand.Description ?? DBNull.Value);
+
+            command.ExecuteNonQuery();
+        }
+        public void Update(Brand brand)
+        {
+            using var connection = new SqliteConnection(ConnectionString);
+
+            connection.Open();
+
+            using var command = connection.CreateCommand();
+
+            command.CommandText = @"
+UPDATE Brands
+SET
+    Name = @Name,
+    Description = @Description
+WHERE Id = @Id;";
+
+            command.Parameters.AddWithValue("@Id", brand.Id);
+            command.Parameters.AddWithValue("@Name", brand.Name);
+            command.Parameters.AddWithValue("@Description",
+                (object?)brand.Description ?? DBNull.Value);
+
+            command.ExecuteNonQuery();
+        }
+        public void Delete(int id)
+        {
+            using var connection = new SqliteConnection(ConnectionString);
+
+            connection.Open();
+
+            using var command = connection.CreateCommand();
+
+            command.CommandText = @"
+DELETE FROM Brands
+WHERE Id = @Id;";
+
+            command.Parameters.AddWithValue("@Id", id);
+
+            command.ExecuteNonQuery();
+        }
+
+
+        public Brand? GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }
 
