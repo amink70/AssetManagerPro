@@ -1,0 +1,46 @@
+﻿<Window x:Class="AssetManagerPro.Views.AddCategoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ثبت دسته‌بندی"
+        Height="350"
+        Width="450"
+        WindowStartupLocation="CenterOwner"
+        FlowDirection="RightToLeft">
+
+    <Grid Margin="20">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="نام دسته‌بندی"/>
+
+        <TextBox x:Name="txtName"
+                 Grid.Row="1"
+                 Height="35"/>
+
+        <TextBlock Grid.Row="3"
+                   Text="توضیحات"/>
+
+        <TextBox x:Name="txtDescription"
+                 Grid.Row="4"
+                 Height="80"
+                 AcceptsReturn="True"/>
+
+        <Button Grid.Row="6"
+                x:Name="btnSave"
+                Width="120"
+                Height="40"
+                Click="btnSave_Click"
+                HorizontalAlignment="Left"
+                Content="💾 ذخیره"/>
+    </Grid>
+
+</Window>
+

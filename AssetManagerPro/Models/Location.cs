@@ -1,6 +1,6 @@
 ﻿namespace AssetManagerPro.Models
 {
-    public class Location
+    public class Location : ILookupEntity
     {
         public int Id { get; set; }
 

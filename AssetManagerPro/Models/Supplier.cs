@@ -1,6 +1,6 @@
 ﻿namespace AssetManagerPro.Models
 {
-    public class Supplier
+    public class Supplier : ILookupEntity
     {
         public int Id { get; set; }
 

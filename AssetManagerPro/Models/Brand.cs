@@ -1,6 +1,7 @@
 ﻿namespace AssetManagerPro.Models
 {
-    public class Brand
+    public class Brand : ILookupEntity
+
     {
         public int Id { get; set; }
 

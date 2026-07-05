@@ -1,6 +1,6 @@
 ﻿namespace AssetManagerPro.Models
 {
-    public class Category
+    public class Category : ILookupEntity
     {
         public int Id { get; set; }
 

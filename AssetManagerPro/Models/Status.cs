@@ -1,6 +1,6 @@
 ﻿namespace AssetManagerPro.Models
 {
-    public class Status
+    public class Status : ILookupEntity
     {
         public int Id { get; set; }
 

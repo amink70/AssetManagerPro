@@ -34,7 +34,19 @@
                 <StackPanel Margin="15">
 
                     <Button Style="{StaticResource ModernButton}"  Content="🏠 داشبورد"/>
-                    <Button Height="45" Margin="0,5" Content="📦 مدیریت اموال"/>
+                    <Button Height="45" Margin="0,5" Content="📦 مدیریت اموال" x:Name="btnAssets"
+Click="btnAssets_Click"/>
+                    <Button x:Name="btnBrands"
+        Height="45"
+        Margin="0,5"
+        Content="🏷 برندها"
+        Click="btnBrands_Click"/>
+
+                    <Button x:Name="btnCategories"
+        Height="45"
+        Margin="0,5"
+        Content="🗂 دسته‌بندی‌ها"
+        Click="btnCategories_Click"/>
                     <Button Height="45" Margin="0,5" Content="👤 کاربران"/>
                     <Button Height="45" Margin="0,5" Content="📊 گزارش‌ها"/>
                     <Button Height="45" Margin="0,5" Content="💾 پشتیبان گیری"/>
@@ -52,7 +64,7 @@
         <Grid Grid.Column="1"
       Margin="20">
 
-            <views:BrandManagementView/>
+            <ContentControl x:Name="MainContent"/>
 
         </Grid>
 
