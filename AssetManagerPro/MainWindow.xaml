@@ -52,6 +52,11 @@ Click="btnAssets_Click"/>
         Margin="0,5"
         Content="🏢 تأمین‌کنندگان"
         Click="btnSuppliers_Click"/>
+                    <Button x:Name="btnLocations"
+        Height="45"
+        Margin="0,5"
+        Content="📍 مکان‌ها"
+        Click="btnLocations_Click"/>
                     <Button Height="45" Margin="0,5" Content="👤 کاربران"/>
                     <Button Height="45" Margin="0,5" Content="📊 گزارش‌ها"/>
                     <Button Height="45" Margin="0,5" Content="💾 پشتیبان گیری"/>

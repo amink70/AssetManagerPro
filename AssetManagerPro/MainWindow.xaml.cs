@@ -30,5 +30,9 @@ namespace AssetManagerPro
         {
             MainContent.Content = new SupplierManagementView();
         }
+        private void btnLocations_Click(object sender, RoutedEventArgs e)
+        {
+            MainContent.Content = new LocationManagementView();
+        }
     }
 }
