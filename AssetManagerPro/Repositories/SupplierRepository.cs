@@ -34,5 +34,102 @@ namespace AssetManagerPro.Repositories
 
             return list;
         }
+        public void Add(Supplier supplier)
+        {
+            using var connection = GetConnection();
+            connection.Open();
+
+            using var command = connection.CreateCommand();
+
+            command.CommandText = @"
+INSERT INTO Suppliers
+(
+    Name,
+    ManagerName,
+    Phone,
+    Email,
+    Address,
+    Description
+)
+VALUES
+(
+    @Name,
+    @ManagerName,
+    @Phone,
+    @Email,
+    @Address,
+    @Description
+);";
+
+            command.Parameters.AddWithValue("@Name", supplier.Name);
+            command.Parameters.AddWithValue("@ManagerName", (object?)supplier.ManagerName ?? DBNull.Value);
+            command.Parameters.AddWithValue("@Phone", (object?)supplier.Phone ?? DBNull.Value);
+            command.Parameters.AddWithValue("@Email", (object?)supplier.Email ?? DBNull.Value);
+            command.Parameters.AddWithValue("@Address", (object?)supplier.Address ?? DBNull.Value);
+            command.Parameters.AddWithValue("@Description", (object?)supplier.Description ?? DBNull.Value);
+
+            command.ExecuteNonQuery();
+        }
+        public void Update(Supplier supplier)
+        {
+            using var connection = GetConnection();
+            connection.Open();
+
+            using var command = connection.CreateCommand();
+
+            command.CommandText = @"
+UPDATE Suppliers
+SET
+    Name = @Name,
+    ManagerName = @ManagerName,
+    Phone = @Phone,
+    Email = @Email,
+    Address = @Address,
+    Description = @Description
+WHERE Id = @Id;";
+
+            command.Parameters.AddWithValue("@Id", supplier.Id);
+            command.Parameters.AddWithValue("@Name", supplier.Name);
+            command.Parameters.AddWithValue("@ManagerName", (object?)supplier.ManagerName ?? DBNull.Value);
+            command.Parameters.AddWithValue("@Phone", (object?)supplier.Phone ?? DBNull.Value);
+            command.Parameters.AddWithValue("@Email", (object?)supplier.Email ?? DBNull.Value);
+            command.Parameters.AddWithValue("@Address", (object?)supplier.Address ?? DBNull.Value);
+            command.Parameters.AddWithValue("@Description", (object?)supplier.Description ?? DBNull.Value);
+
+            command.ExecuteNonQuery();
+        }
+        public void Delete(int id)
+        {
+            using var connection = GetConnection();
+            connection.Open();
+
+            using var command = connection.CreateCommand();
+
+            command.CommandText = @"
+DELETE FROM Suppliers
+WHERE Id = @Id;";
+
+            command.Parameters.AddWithValue("@Id", id);
+
+            command.ExecuteNonQuery();
+        }
+        public bool IsUsed(int id)
+        {
+            using var connection = GetConnection();
+            connection.Open();
+
+            using var command = connection.CreateCommand();
+
+            command.CommandText = @"
+SELECT COUNT(*)
+FROM Assets
+WHERE SupplierId = @Id;";
+
+            command.Parameters.AddWithValue("@Id", id);
+
+            long count = (long)command.ExecuteScalar()!;
+
+            return count > 0;
+        }
     }
 }

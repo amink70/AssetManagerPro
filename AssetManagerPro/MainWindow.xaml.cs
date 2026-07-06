@@ -26,5 +26,9 @@ namespace AssetManagerPro
         {
             MainContent.Content = new CategoryManagementView();
         }
+        private void btnSuppliers_Click(object sender, RoutedEventArgs e)
+        {
+            MainContent.Content = new SupplierManagementView();
+        }
     }
 }
