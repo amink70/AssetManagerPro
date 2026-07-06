@@ -1,0 +1,117 @@
+﻿<Window x:Class="AssetManagerPro.Views.AddReceiverWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="افزودن گیرنده"
+        Height="420"
+        Width="550"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        FlowDirection="RightToLeft">
+
+    <Grid Margin="20">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="130"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <!-- نام -->
+
+        <TextBlock Grid.Row="0"
+                   Grid.Column="0"
+                   VerticalAlignment="Center"
+                   Text="نام و نام خانوادگی"/>
+
+        <TextBox x:Name="txtFullName"
+                 Grid.Row="0"
+                 Grid.Column="1"
+                 Height="30"/>
+
+        <!-- کد پرسنلی -->
+
+        <TextBlock Grid.Row="1"
+                   Grid.Column="0"
+                   VerticalAlignment="Center"
+                   Text="کد پرسنلی"/>
+
+        <TextBox x:Name="txtPersonnelCode"
+                 Grid.Row="1"
+                 Grid.Column="1"
+                 Height="30"/>
+
+        <!-- دپارتمان -->
+
+        <TextBlock Grid.Row="2"
+                   Grid.Column="0"
+                   VerticalAlignment="Center"
+                   Text="دپارتمان"/>
+
+        <ComboBox x:Name="cmbDepartment"
+                  Grid.Row="2"
+                  Grid.Column="1"
+                  Height="30"
+                  DisplayMemberPath="Name"
+                  SelectedValuePath="Id"/>
+
+        <!-- تلفن -->
+
+        <TextBlock Grid.Row="3"
+                   Grid.Column="0"
+                   VerticalAlignment="Center"
+                   Text="تلفن"/>
+
+        <TextBox x:Name="txtPhone"
+                 Grid.Row="3"
+                 Grid.Column="1"
+                 Height="30"/>
+
+        <!-- ایمیل -->
+
+        <TextBlock Grid.Row="4"
+                   Grid.Column="0"
+                   VerticalAlignment="Center"
+                   Text="ایمیل"/>
+
+        <TextBox x:Name="txtEmail"
+                 Grid.Row="4"
+                 Grid.Column="1"
+                 Height="30"/>
+
+        <!-- فعال -->
+
+        <TextBlock Grid.Row="5"
+                   Grid.Column="0"
+                   VerticalAlignment="Center"
+                   Text="وضعیت"/>
+
+        <CheckBox x:Name="chkIsActive"
+                  Grid.Row="5"
+                  Grid.Column="1"
+                  VerticalAlignment="Center"
+                  Content="فعال"
+                  IsChecked="True"/>
+
+        <!-- ذخیره -->
+
+        <Button x:Name="btnSave"
+                Grid.Row="6"
+                Grid.ColumnSpan="2"
+                Width="120"
+                Height="40"
+                HorizontalAlignment="Center"
+                Content="ذخیره"
+                Click="btnSave_Click"/>
+
+    </Grid>
+
+</Window>

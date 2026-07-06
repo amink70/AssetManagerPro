@@ -34,5 +34,9 @@ namespace AssetManagerPro
         {
             MainContent.Content = new LocationManagementView();
         }
+        private void btnReceivers_Click(object sender, RoutedEventArgs e)
+        {
+            MainContent.Content = new ReceiverManagementView();
+        }
     }
 }

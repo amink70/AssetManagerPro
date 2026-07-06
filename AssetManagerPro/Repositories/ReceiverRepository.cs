@@ -34,5 +34,110 @@ namespace AssetManagerPro.Repositories
 
             return list;
         }
+        public void Add(Receiver receiver)
+        {
+            using var connection = GetConnection();
+            connection.Open();
+
+            using var command = connection.CreateCommand();
+
+            command.CommandText = @"
+INSERT INTO Receivers
+(
+    FullName,
+    PersonnelCode,
+    DepartmentId,
+    Phone,
+    Email,
+    IsActive
+)
+VALUES
+(
+    @FullName,
+    @PersonnelCode,
+    @DepartmentId,
+    @Phone,
+    @Email,
+    @IsActive
+);";
+
+            command.Parameters.AddWithValue("@FullName", receiver.FullName);
+            command.Parameters.AddWithValue("@PersonnelCode", receiver.PersonnelCode);
+            command.Parameters.AddWithValue("@DepartmentId", receiver.DepartmentId);
+            command.Parameters.AddWithValue("@Phone",
+                (object?)receiver.Phone ?? DBNull.Value);
+            command.Parameters.AddWithValue("@Email",
+                (object?)receiver.Email ?? DBNull.Value);
+            command.Parameters.AddWithValue("@IsActive", receiver.IsActive);
+
+            command.ExecuteNonQuery();
+        }
+        public void Update(Receiver receiver)
+        {
+            using var connection = GetConnection();
+            connection.Open();
+
+            using var command = connection.CreateCommand();
+
+            command.CommandText = @"
+UPDATE Receivers
+SET
+    FullName = @FullName,
+    PersonnelCode = @PersonnelCode,
+    DepartmentId = @DepartmentId,
+    Phone = @Phone,
+    Email = @Email,
+    IsActive = @IsActive
+WHERE Id = @Id;";
+
+            command.Parameters.AddWithValue("@Id", receiver.Id);
+            command.Parameters.AddWithValue("@FullName", receiver.FullName);
+            command.Parameters.AddWithValue("@PersonnelCode", receiver.PersonnelCode);
+            command.Parameters.AddWithValue("@DepartmentId", receiver.DepartmentId);
+            command.Parameters.AddWithValue("@Phone",
+                (object?)receiver.Phone ?? DBNull.Value);
+            command.Parameters.AddWithValue("@Email",
+                (object?)receiver.Email ?? DBNull.Value);
+            command.Parameters.AddWithValue("@IsActive", receiver.IsActive);
+
+            command.ExecuteNonQuery();
+        }
+        public void Delete(int id)
+        {
+            using var connection = GetConnection();
+            connection.Open();
+
+            using var command = connection.CreateCommand();
+
+            command.CommandText = @"
+DELETE FROM Receivers
+WHERE Id = @Id;";
+
+            command.Parameters.AddWithValue("@Id", id);
+
+            command.ExecuteNonQuery();
+        }
+        public bool IsUsed(int id)
+        {
+            using var connection = GetConnection();
+            connection.Open();
+
+            using var command = connection.CreateCommand();
+
+            command.CommandText = @"
+SELECT COUNT(*)
+FROM Assets
+WHERE ReceiverId = @Id;";
+
+            command.Parameters.AddWithValue("@Id", id);
+
+            long count = (long)command.ExecuteScalar()!;
+
+            return count > 0;
+        }
+
+
+
+
     }
 }
