@@ -1,4 +1,5 @@
 ﻿using System;
+using AssetManagerPro.Enums;
 
 namespace AssetManagerPro.Models
 {
@@ -14,7 +15,7 @@ namespace AssetManagerPro.Models
 
         public int UserId { get; set; }
 
-        public string TransactionType { get; set; } = string.Empty;
+        public TransactionType TransactionType { get; set; }
 
         public DateTime TransactionDate { get; set; }
 

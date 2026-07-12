@@ -319,5 +319,38 @@ ORDER BY A.Id DESC;";
             }
             return assets;
         }
+        public void UpdateAfterTransaction(
+     SqliteConnection connection,
+     SqliteTransaction transaction,
+     int assetId,
+     int? receiverId,
+     int locationId,
+     int statusId)
+        {
+            using var command = connection.CreateCommand();
+
+            command.Transaction = transaction;
+
+            command.CommandText = @"
+UPDATE Assets
+SET
+    ReceiverId = @ReceiverId,
+    LocationId = @LocationId,
+    StatusId = @StatusId,
+    UpdatedAt = @UpdatedAt
+WHERE Id = @AssetId;";
+
+            command.Parameters.AddWithValue("@AssetId", assetId);
+
+            command.Parameters.AddWithValue(
+                "@ReceiverId",
+                (object?)receiverId ?? DBNull.Value);
+
+            command.Parameters.AddWithValue("@LocationId", locationId);
+            command.Parameters.AddWithValue("@StatusId", statusId);
+            command.Parameters.AddWithValue("@UpdatedAt", DateTime.Now);
+
+            command.ExecuteNonQuery();
+        }
     }
 }

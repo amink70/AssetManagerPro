@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AssetManagerPro.Models;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -24,5 +25,26 @@ namespace AssetManagerPro.Views
 
             DataContext = new AssetManagementViewModel();
         }
+        private void btnHistory_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgAssets.SelectedItem is not AssetDisplay asset)
+            {
+                MessageBox.Show(
+                    "لطفاً ابتدا یک دارایی را انتخاب کنید.",
+                    "تاریخچه دارایی",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+
+                return;
+            }
+
+            AssetHistoryWindow window = new(asset.Id);
+
+            window.Owner = Window.GetWindow(this);
+
+            window.ShowDialog();
+        }
+
+
     }
 }

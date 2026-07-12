@@ -115,6 +115,60 @@ WHERE StatusId = (
             }
             return statistics;
         }
+        public List<RecentActivity> GetRecentActivities()
+        {
+            List<RecentActivity> list = new();
+
+            using var connection = GetConnection();
+            connection.Open();
+
+            using var command = connection.CreateCommand();
+
+            command.CommandText = @"
+SELECT
+    t.TransactionDate,
+    a.Name,
+    IFNULL(r.FullName,''),
+    t.TransactionType
+
+FROM AssetTransactions t
+
+INNER JOIN Assets a
+ON t.AssetId = a.Id
+
+LEFT JOIN Receivers r
+ON t.ReceiverId = r.Id
+
+ORDER BY t.TransactionDate DESC
+
+LIMIT 10;";
+
+            using var reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                string asset = reader.GetString(1);
+
+                string receiver = reader.GetString(2);
+
+                string type =
+                    ((Enums.TransactionType)reader.GetInt32(3)).ToString();
+
+                list.Add(new RecentActivity
+                {
+                    Date = reader.GetDateTime(0),
+
+                    Title = asset,
+
+                    Description =
+                        $"{type} - {receiver}"
+                });
+            }
+
+            return list;
+        }
+
+
 
 
     }

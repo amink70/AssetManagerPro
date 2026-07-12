@@ -16,6 +16,7 @@
                 <ResourceDictionary Source="Resources/CardStyles.xaml"/>
                 <ResourceDictionary Source="Resources/TextBoxStyles.xaml"/>
                 <ResourceDictionary Source="Resources/ControlStyles.xaml"/>
+                <ResourceDictionary Source="Resources/DataGridStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
         </ResourceDictionary>

@@ -12,62 +12,125 @@
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="260"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="11"/>
+            <ColumnDefinition Width="24"/>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="210"/>
+            <ColumnDefinition Width="19*"/>
+            <ColumnDefinition Width="321*"/>
         </Grid.ColumnDefinitions>
 
         <!-- منوی سمت راست -->
 
         <Border Grid.Column="0"
-                Background="#1E293B">
+                Background="#1E293B" Grid.ColumnSpan="4">
 
             <DockPanel>
 
-                <TextBlock DockPanel.Dock="Top"
-                           Margin="20"
-                           FontSize="24"
+                <Border DockPanel.Dock="Top"
+        Margin="10"
+        Padding="10"
+        CornerRadius="8"
+        Background="#334155">
+
+                    <StackPanel>
+
+                        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+
+                            <TextBlock Text="🖥"
+                       FontSize="24"
+                       Margin="0,0,8,0"
+                       VerticalAlignment="Center"/>
+
+                            <StackPanel>
+
+                                <TextBlock Text="AssetManager Pro"
+                           FontSize="16"
                            FontWeight="Bold"
-                           Foreground="White"
-                           Style="{StaticResource TitleText}"
-                           Text="سیستم مدیریت اموال"/>
+                           Foreground="White"/>
 
-                <StackPanel Margin="15">
+                                <TextBlock Text="Version 1.0"
+                           FontSize="10"
+                           Foreground="#CBD5E1"/>
 
-                    <Button Style="{StaticResource ModernButton}"  Content="🏠 داشبورد"/>
-                    <Button Height="45" Margin="0,5" Content="📦 مدیریت اموال" x:Name="btnAssets"
+                            </StackPanel>
+
+                        </StackPanel>
+
+                    </StackPanel>
+
+                </Border>
+
+
+
+
+
+                <ScrollViewer VerticalScrollBarVisibility="Auto"
+              HorizontalScrollBarVisibility="Disabled">
+
+                    <StackPanel Margin="15">
+
+                        <Button Style="{StaticResource SidebarButtonStyle}" Click="btnDashboard_Click" Content="🏠 داشبورد"/>
+                        <Button Style="{StaticResource SidebarButtonStyle}" Height="45" Margin="0,5" Content="📦 مدیریت اموال" x:Name="btnAssets"
 Click="btnAssets_Click"/>
-                    <Button x:Name="btnBrands"
-        Height="45"
-        Margin="0,5"
-        Content="🏷 برندها"
-        Click="btnBrands_Click"/>
+                        <Separator Margin="0,8"/>
+                        <Expander Header="⚙ اطلاعات پایه"
+                                  Padding="8"
+          BorderThickness="0"
+          Foreground="White"
+          Background="#1E293B"
+          FontSize="15"
+          FontWeight="SemiBold"
+          Margin="0,5">
 
-                    <Button x:Name="btnCategories"
-        Height="45"
-        Margin="0,5"
-        Content="🗂 دسته‌بندی‌ها"
-        Click="btnCategories_Click"/>
-                    <Button x:Name="btnSuppliers"
-        Height="45"
-        Margin="0,5"
-        Content="🏢 تأمین‌کنندگان"
-        Click="btnSuppliers_Click"/>
-                    <Button x:Name="btnLocations"
-        Height="45"
-        Margin="0,5"
-        Content="📍 مکان‌ها"
-        Click="btnLocations_Click"/>
-                    <Button x:Name="btnReceivers"
-        Height="45"
-        Margin="0,5"
-        Content="👥 گیرندگان"
-        Click="btnReceivers_Click"/>
-                    <Button Height="45" Margin="0,5" Content="👤 کاربران"/>
-                    <Button Height="45" Margin="0,5" Content="📊 گزارش‌ها"/>
-                    <Button Height="45" Margin="0,5" Content="💾 پشتیبان گیری"/>
-                    <Button Height="45" Margin="0,5" Content="⚙ تنظیمات"/>
+                            <StackPanel Margin="10,8,0,5">
 
-                </StackPanel>
+                                <Button  x:Name="btnBrands"
+                 Style="{StaticResource ModernButton}"
+                Content="🏷 برندها"
+                Click="btnBrands_Click"/>
+
+                                <Button  x:Name="btnCategories"
+                 Style="{StaticResource ModernButton}"
+                Content="🗂 دسته‌بندی‌ها"
+                Click="btnCategories_Click"/>
+
+                                <Button  x:Name="btnSuppliers"
+                 Style="{StaticResource ModernButton}"
+                Content="🏢 تأمین‌کنندگان"
+                Click="btnSuppliers_Click"/>
+
+                                <Button  x:Name="btnLocations"
+                 Style="{StaticResource ModernButton}"
+                Content="📍 مکان‌ها"
+                Click="btnLocations_Click"/>
+
+                                <Button  x:Name="btnReceivers"
+                 Style="{StaticResource ModernButton}"
+                Content="👥 گیرندگان"
+                Click="btnReceivers_Click"/>
+                                <Button x:Name="btnTransactions"
+        Style="{StaticResource ModernButton}"
+        Content="🔄 گردش اموال"
+        Click="btnTransactions_Click"/>
+
+                            </StackPanel>
+
+                        </Expander>
+                        <Separator Margin="0,8"/>
+                        <Button Style="{StaticResource SidebarButtonStyle}" Height="45" Margin="0,5" Content="👤 کاربران"/>
+                        <Button Style="{StaticResource SidebarButtonStyle}"
+        Height="45"
+        Margin="0,5"
+        Content="📊 گزارش‌ها"
+        Click="btnReports_Click"/>
+                        <Button Style="{StaticResource SidebarButtonStyle}" Height="45" Margin="0,5" Content="💾 پشتیبان گیری"/>
+                        <Button Style="{StaticResource SidebarButtonStyle}" Height="45" Margin="0,5" Content="⚙ تنظیمات"/>
+
+                    </StackPanel>
+
+                </ScrollViewer>
 
             </DockPanel>
 
@@ -76,8 +139,8 @@ Click="btnAssets_Click"/>
         <!-- محتوای اصلی -->
 
 
-        <Grid Grid.Column="1"
-      Margin="20">
+        <Grid Grid.Column="4"
+      Margin="20,20,20,20" Grid.ColumnSpan="2">
 
             <ContentControl x:Name="MainContent"/>
 

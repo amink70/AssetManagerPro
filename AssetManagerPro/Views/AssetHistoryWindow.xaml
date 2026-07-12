@@ -1,0 +1,53 @@
+﻿<Window x:Class="AssetManagerPro.Views.AssetHistoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="تاریخچه دارایی"
+        Height="500"
+        Width="900"
+        WindowStartupLocation="CenterOwner">
+
+    <Grid Margin="15">
+
+        <DataGrid x:Name="dgHistory"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True">
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn
+                    Header="تاریخ"
+                    Binding="{Binding TransactionDate}"
+                    Width="170"/>
+
+                <DataGridTextColumn
+                    Header="نوع گردش"
+                    Binding="{Binding TransactionType}"
+                    Width="120"/>
+
+                <DataGridTextColumn
+                    Header="گیرنده"
+                    Binding="{Binding ReceiverName}"
+                    Width="2*"/>
+
+                <DataGridTextColumn
+                    Header="مکان"
+                    Binding="{Binding LocationName}"
+                    Width="2*"/>
+
+                <DataGridTextColumn
+                    Header="ثبت کننده"
+                    Binding="{Binding UserName}"
+                    Width="2*"/>
+
+                <DataGridTextColumn
+                    Header="توضیحات"
+                    Binding="{Binding Description}"
+                    Width="3*"/>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+    </Grid>
+
+</Window>

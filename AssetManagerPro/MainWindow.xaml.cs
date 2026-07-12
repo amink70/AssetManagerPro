@@ -21,7 +21,10 @@ namespace AssetManagerPro
         {
             MainContent.Content = new BrandManagementView();
         }
-
+        private void btnTransactions_Click(object sender, RoutedEventArgs e)
+        {
+            MainContent.Content = new TransactionManagementView();
+        }
         private void btnCategories_Click(object sender, RoutedEventArgs e)
         {
             MainContent.Content = new CategoryManagementView();
@@ -37,6 +40,14 @@ namespace AssetManagerPro
         private void btnReceivers_Click(object sender, RoutedEventArgs e)
         {
             MainContent.Content = new ReceiverManagementView();
+        }
+        private void btnDashboard_Click(object sender, RoutedEventArgs e)
+        {
+            MainContent.Content = new DashboardView();
+        }
+        private void btnReports_Click(object sender, RoutedEventArgs e)
+        {
+            MainContent.Content = new ReportsView();
         }
     }
 }

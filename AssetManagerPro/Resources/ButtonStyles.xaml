@@ -6,7 +6,7 @@
     <Style x:Key="ModernButton"
            TargetType="Button">
         
-        <Setter Property="Height" Value="45"/>
+        <Setter Property="Height" Value="42"/>
         <Setter Property="Margin" Value="0,6"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontSize" Value="15"/>
@@ -23,11 +23,12 @@
 
                     <Border x:Name="border"
                             Background="{TemplateBinding Background}"
-                            CornerRadius="10">
+                            CornerRadius="8">
 
                         <ContentPresenter
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"/>
+    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+    VerticalAlignment="Center"
+    Margin="{TemplateBinding Padding}"/>
 
                     </Border>
 
@@ -58,6 +59,16 @@
             </Setter.Value>
 
         </Setter>
+
+    </Style>
+    <Style x:Key="SidebarButtonStyle"
+       TargetType="Button"
+       BasedOn="{StaticResource ModernButton}">
+
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="Padding" Value="15,0"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Margin" Value="0,4"/>
 
     </Style>
 

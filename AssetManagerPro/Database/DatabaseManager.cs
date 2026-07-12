@@ -216,7 +216,7 @@ CREATE TABLE IF NOT EXISTS AssetTransactions
     LocationId INTEGER NOT NULL,
     UserId INTEGER NOT NULL,
 
-    TransactionType TEXT NOT NULL,
+    TransactionType INTEGER NOT NULL,
     TransactionDate TEXT NOT NULL,
     Description TEXT,
 

@@ -12,19 +12,36 @@
                        FontWeight="Bold"
                        Margin="0,0,0,15"/>
 
-            <ListView BorderThickness="0">
+            <ListView ItemsSource="{Binding RecentActivities}"
+          BorderThickness="0">
 
-                <ListViewItem>ثبت لپ‌تاپ Dell</ListViewItem>
+                <ListView.ItemTemplate>
 
-                <ListViewItem>تغییر وضعیت پرینتر HP</ListViewItem>
+                    <DataTemplate>
 
-                <ListViewItem>ورود مدیر سیستم</ListViewItem>
+                        <StackPanel Margin="0,5">
 
-                <ListViewItem>ثبت مانیتور LG</ListViewItem>
+                            <TextBlock Text="{Binding Title}"
+                           FontWeight="Bold"
+                           FontSize="14"/>
 
-                <ListViewItem>تهیه گزارش اموال</ListViewItem>
+                            <TextBlock Text="{Binding Description}"
+                           Foreground="Gray"
+                           Margin="0,2,0,0"/>
+
+                            <TextBlock Text="{Binding Date}"
+                           FontSize="11"
+                           Foreground="DarkGray"/>
+
+                        </StackPanel>
+
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
 
             </ListView>
+
+
 
         </DockPanel>
 

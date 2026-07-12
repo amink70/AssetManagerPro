@@ -14,7 +14,7 @@ namespace AssetManagerPro.ViewModels
         public double HealthyPercent { get; set; }
 
         public double RepairPercent { get; set; }
-
+        public ObservableCollection<RecentActivity> RecentActivities { get; set; }
         public double BrokenPercent { get; set; }
         public int RepairAssets { get; set; }
         public string TodayDate { get; set; }
@@ -38,6 +38,8 @@ namespace AssetManagerPro.ViewModels
             BrokenPercent = statistics.BrokenPercent;
             LatestAssets = new ObservableCollection<AssetDisplay>(
     _repository.GetLatestAssets());
+            RecentActivities = new ObservableCollection<RecentActivity>(
+    _repository.GetRecentActivities());
             PersianCalendar pc = new PersianCalendar();
 
             DateTime now = DateTime.Now;
