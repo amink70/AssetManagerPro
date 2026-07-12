@@ -129,6 +129,8 @@ namespace AssetManagerPro.Views
 
                 repository.Update(asset);
 
+                AssetSaved?.Invoke();
+
                 MessageBox.Show("کالا با موفقیت ویرایش شد.");
 
                 DialogResult = true;

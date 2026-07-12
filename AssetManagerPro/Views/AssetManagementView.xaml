@@ -26,16 +26,17 @@
         Width="120"
         Style="{StaticResource ModernButton}"
         Click="btnAdd_Click"/>
-
             <Button Content="ویرایش"
-                    Width="120"
-                    Margin="10,0,0,0"
-                    Style="{StaticResource ModernButton}"/>
+        Width="120"
+        Margin="10,0,0,0"
+        Style="{StaticResource ModernButton}"
+        Click="btnEdit_Click"/>
 
             <Button Content="حذف"
-                    Width="120"
-                    Margin="10,0,0,0"
-                    Style="{StaticResource ModernButton}"/>
+        Width="120"
+        Margin="10,0,0,0"
+        Style="{StaticResource ModernButton}"
+        Click="btnDelete_Click"/>
             <Button Content="📜 تاریخچه"
         Width="120"
         Margin="10,0,0,0"
