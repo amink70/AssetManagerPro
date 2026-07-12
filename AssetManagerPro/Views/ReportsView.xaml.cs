@@ -23,5 +23,19 @@ namespace AssetManagerPro.Views
 
             dgReports.ItemsSource = repository.GetHealthyAssetsReport();
         }
+        private void btnBrokenAssets_Click(object sender, RoutedEventArgs e)
+        {
+            ReportRepository repository = new();
+
+            dgReports.ItemsSource = repository.GetBrokenAssetsReport();
+        }
+        private void btnRepairAssets_Click(object sender, RoutedEventArgs e)
+        {
+            ReportRepository repository = new();
+
+            dgReports.ItemsSource = repository.GetRepairAssetsReport();
+        }
+
+
     }
 }

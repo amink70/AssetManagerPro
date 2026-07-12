@@ -176,14 +176,25 @@ SelectedValuePath="Id"
          HorizontalAlignment="Right"
          AcceptsReturn="True"
          TextWrapping="Wrap"/>
-        <Button
-    x:Name="btnSave"
-    Grid.Row="22"
-    Grid.Column="2"
-    Width="150"
-    Height="40"
-    Content="💾 ثبت کالا"
-    Click="btnSave_Click"/>
+        <StackPanel Grid.Row="22"
+            Grid.Column="2"
+            Orientation="Horizontal"
+            HorizontalAlignment="Right">
+
+            <Button x:Name="btnSave"
+            Width="150"
+            Height="40"
+            Margin="0,0,10,0"
+            Content="💾 ثبت کالا"
+            Click="btnSave_Click"/>
+
+            <Button x:Name="btnCancel"
+            Width="150"
+            Height="40"
+            Content="❌ انصراف"
+            Click="btnCancel_Click"/>
+
+        </StackPanel>
     </Grid>
 
 </Window>

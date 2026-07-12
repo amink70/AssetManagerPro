@@ -44,6 +44,21 @@ namespace AssetManagerPro.Views
 
             window.ShowDialog();
         }
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            AddAssetWindow window = new();
+
+            window.Owner = Window.GetWindow(this);
+
+            window.AssetSaved += () =>
+            {
+                ((AssetManagementViewModel)DataContext).LoadAssets();
+            };
+
+            window.ShowDialog();
+        }
+
+
 
 
     }

@@ -23,8 +23,9 @@
                     Margin="0,0,0,20">
 
             <Button Content="افزودن"
-                    Width="120"
-                    Style="{StaticResource ModernButton}"/>
+        Width="120"
+        Style="{StaticResource ModernButton}"
+        Click="btnAdd_Click"/>
 
             <Button Content="ویرایش"
                     Width="120"

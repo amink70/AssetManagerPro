@@ -41,14 +41,16 @@
         Click="btnHealthyAssets_Click"/>
 
                 <Button Content="اموال خراب"
-                        Width="140"
-                        Height="40"
-                        Margin="5"/>
+        Width="140"
+        Height="40"
+        Margin="5"
+        Click="btnBrokenAssets_Click"/>
 
                 <Button Content="در تعمیر"
-                        Width="140"
-                        Height="40"
-                        Margin="5"/>
+        Width="140"
+        Height="40"
+        Margin="5"
+        Click="btnRepairAssets_Click"/>
 
                 <Button Content="گردش اموال"
                         Width="140"
@@ -73,8 +75,7 @@
             </WrapPanel>
 
         </Border>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto"
-              VerticalScrollBarVisibility="Disabled">
+        
 
             <!-- جدول گزارش -->
         <DataGrid Grid.Row="2"
@@ -128,7 +129,7 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        </ScrollViewer>
+        
 
     </Grid>
 

@@ -22,7 +22,7 @@ namespace AssetManagerPro.Views
     public partial class AddAssetWindow : Window
     {
         private readonly AssetRepository _repository = new();
-
+        public event Action? AssetSaved;
         private Asset? _editingAsset;
 
         public AddAssetWindow()
@@ -103,7 +103,25 @@ namespace AssetManagerPro.Views
             if (_editingAsset == null)
             {
                 repository.Add(asset);
+                AssetSaved?.Invoke();
+
                 MessageBox.Show("کالا با موفقیت ثبت شد.");
+
+                txtAssetCode.Clear();
+                txtName.Clear();
+                txtPrice.Clear();
+                txtDescription.Clear();
+
+                cmbBrand.SelectedIndex = -1;
+                cmbCategory.SelectedIndex = -1;
+                cmbSupplier.SelectedIndex = -1;
+                cmbLocation.SelectedIndex = -1;
+                cmbReceiver.SelectedIndex = -1;
+                cmbStatus.SelectedIndex = -1;
+
+                dpPurchaseDate.SelectedDate = DateTime.Today;
+
+                txtAssetCode.Focus();
             }
             else
             {
@@ -112,6 +130,9 @@ namespace AssetManagerPro.Views
                 repository.Update(asset);
 
                 MessageBox.Show("کالا با موفقیت ویرایش شد.");
+
+                DialogResult = true;
+                Close();
             }
             txtAssetCode.Clear();
             txtName.Clear();
@@ -125,6 +146,10 @@ namespace AssetManagerPro.Views
             cmbStatus.SelectedIndex = -1;
             dpPurchaseDate.SelectedDate = DateTime.Today;
             txtAssetCode.Focus();
+        }
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

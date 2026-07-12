@@ -6,5 +6,7 @@ namespace AssetManagerPro.Repositories
     {
         List<AssetDisplay> GetAllAssetsReport();
         List<AssetDisplay> GetHealthyAssetsReport();
+        List<AssetDisplay> GetBrokenAssetsReport();
+        List<AssetDisplay> GetRepairAssetsReport();
     }
 }
