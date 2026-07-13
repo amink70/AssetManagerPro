@@ -33,5 +33,18 @@
                 Value="Center"/>
 
     </Style>
+    <Style x:Key="SearchTextBox"
+       TargetType="TextBox">
+
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Padding" Value="10,0"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="BorderBrush" Value="#D1D5DB"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+    </Style>
 
 </ResourceDictionary>

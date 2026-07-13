@@ -21,11 +21,14 @@ namespace AssetManagerPro.Views
     public partial class AssetManagementView : UserControl
     {
         private readonly AssetRepository _repository = new();
+        private readonly AssetManagementViewModel _viewModel;
         public AssetManagementView()
         {
             InitializeComponent();
 
-            DataContext = new AssetManagementViewModel();
+            _viewModel = new AssetManagementViewModel();
+
+            DataContext = _viewModel;
         }
         private void btnHistory_Click(object sender, RoutedEventArgs e)
         {
@@ -54,7 +57,7 @@ namespace AssetManagerPro.Views
 
             window.AssetSaved += () =>
             {
-                ((AssetManagementViewModel)DataContext).LoadAssets();
+                _viewModel.LoadAssets();
             };
 
             window.ShowDialog();
@@ -80,7 +83,7 @@ namespace AssetManagerPro.Views
 
             window.AssetSaved += () =>
             {
-                ((AssetManagementViewModel)DataContext).LoadAssets();
+                _viewModel.LoadAssets();
             };
 
             window.ShowDialog();
@@ -109,13 +112,17 @@ namespace AssetManagerPro.Views
 
             _repository.Delete(selectedAsset.Id);
 
-            ((AssetManagementViewModel)DataContext).LoadAssets();
+            _viewModel.LoadAssets();
 
             MessageBox.Show(
                 "دارایی با موفقیت حذف شد.",
                 "حذف",
                 MessageBoxButton.OK,
                 MessageBoxImage.Information);
+        }
+        private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            _viewModel.Search(txtSearch.Text);
         }
 
 

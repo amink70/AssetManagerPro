@@ -13,7 +13,7 @@ namespace AssetManagerPro.Repositories
         void Delete(int id);
 
         Asset? GetById(int id);
-
+        List<AssetDisplay> Search(string searchText);
         List<AssetDisplay> GetAll();
         void UpdateAfterTransaction(
     SqliteConnection connection,

@@ -24,4 +24,29 @@ public class AssetManagementViewModel
             Assets.Add(asset);
         }
     }
+    public void Search(string text)
+    {
+        Assets.Clear();
+
+        List<AssetDisplay> list;
+
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            list = _repository.GetAll();
+        }
+        else
+        {
+            list = _repository.Search(text);
+        }
+
+        foreach (var asset in list)
+        {
+            Assets.Add(asset);
+        }
+    }
+
+
+
+
+
 }

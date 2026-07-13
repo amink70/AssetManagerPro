@@ -1,4 +1,6 @@
-﻿using AssetManagerPro.Repositories;
+﻿using AssetManagerPro.Models;
+using AssetManagerPro.Repositories;
+using AssetManagerPro.Services;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -7,7 +9,8 @@ namespace AssetManagerPro.Views
     public partial class ReportsView : UserControl
     {
         private readonly ReportRepository _reportRepository = new();
-
+        private readonly ReportRepository _repository = new();
+        private readonly ExcelService _excelService = new();
         public ReportsView()
         {
             InitializeComponent();
@@ -34,6 +37,23 @@ namespace AssetManagerPro.Views
             ReportRepository repository = new();
 
             dgReports.ItemsSource = repository.GetRepairAssetsReport();
+        }
+        private void btnExportExcel_Click(object sender, RoutedEventArgs e)
+        {
+            var assets = dgReports.ItemsSource as List<AssetDisplay>;
+
+            if (assets == null || assets.Count == 0)
+            {
+                MessageBox.Show(
+                    "ابتدا یک گزارش را نمایش دهید.",
+                    "خروجی Excel",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+
+                return;
+            }
+
+            _excelService.ExportAssets(assets);
         }
 
 

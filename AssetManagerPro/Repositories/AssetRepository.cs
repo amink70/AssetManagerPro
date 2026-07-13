@@ -194,64 +194,7 @@ WHERE Id = @Id;";
 
         }
 
-        public List<AssetDisplay> Search(string text)
-        {
-            using var connection = new SqliteConnection(ConnectionString);
-
-            connection.Open();
-
-            using var command = connection.CreateCommand();
-
-            command.CommandText = @"
-SELECT
-    Assets.Id,
-    Assets.AssetCode,
-    Assets.Name,
-    Brands.Name AS Brand,
-    Assets.Model,
-    Statuses.Name AS Status,
-    Locations.Name AS Location,
-    Receivers.FullName AS Receiver
-FROM Assets
-LEFT JOIN Brands ON Assets.BrandId = Brands.Id
-LEFT JOIN Statuses ON Assets.StatusId = Statuses.Id
-LEFT JOIN Locations ON Assets.LocationId = Locations.Id
-LEFT JOIN Receivers ON Assets.ReceiverId = Receivers.Id
-WHERE
-    Assets.AssetCode LIKE @Search OR
-    Assets.Name LIKE @Search OR
-    Brands.Name LIKE @Search OR
-    Assets.Model LIKE @Search OR
-    Statuses.Name LIKE @Search OR
-    Receivers.FullName LIKE @Search OR
-    Locations.Name LIKE @Search
-
-ORDER BY Assets.Id DESC;
-";
-
-            command.Parameters.AddWithValue("@Search", $"%{text}%");
-
-            List<AssetDisplay> assets = new();
-
-            using var reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                assets.Add(new AssetDisplay
-                {
-                    Id = reader.GetInt32(0),
-                    AssetCode = reader.GetString(1),
-                    Name = reader.GetString(2),
-                    Brand = reader.IsDBNull(3) ? "" : reader.GetString(3),
-                    Model = reader.IsDBNull(4) ? "" : reader.GetString(4),
-                    Status = reader.IsDBNull(5) ? "" : reader.GetString(5),
-                    Location = reader.IsDBNull(6) ? "" : reader.GetString(6),
-                    Receiver = reader.IsDBNull(7) ? "" : reader.GetString(7)
-                });
-            }
-
-            return assets;
-        }
+        
         public List<AssetDisplay> GetAll()
         {
             List<AssetDisplay> assets = new();
@@ -352,5 +295,82 @@ WHERE Id = @AssetId;";
 
             command.ExecuteNonQuery();
         }
+        public List<AssetDisplay> Search(string searchText)
+        {
+            List<AssetDisplay> assets = new();
+
+            using var connection = new SqliteConnection(ConnectionString);
+
+            connection.Open();
+
+            using var command = connection.CreateCommand();
+
+            command.CommandText = @"
+SELECT
+    A.Id,
+    A.AssetCode,
+    A.Name,
+    B.Name AS Brand,
+    C.Name AS Category,
+    A.Model,
+    A.SerialNumber,
+    IFNULL(L.Name,'') AS Location,
+    IFNULL(R.FullName,'') AS Receiver,
+    S.Name AS Status,
+    A.Price,
+    A.PurchaseDate
+
+FROM Assets A
+
+INNER JOIN Brands B ON A.BrandId=B.Id
+INNER JOIN Categories C ON A.CategoryId=C.Id
+INNER JOIN Locations L ON A.LocationId=L.Id
+LEFT JOIN Receivers R ON A.ReceiverId=R.Id
+INNER JOIN Statuses S ON A.StatusId=S.Id
+
+WHERE
+
+A.AssetCode LIKE @Search OR
+A.Name LIKE @Search OR
+B.Name LIKE @Search OR
+C.Name LIKE @Search OR
+A.Model LIKE @Search OR
+A.SerialNumber LIKE @Search OR
+L.Name LIKE @Search OR
+IFNULL(R.FullName,'') LIKE @Search OR
+S.Name LIKE @Search
+
+ORDER BY A.Id DESC;
+";
+
+            command.Parameters.AddWithValue("@Search", $"%{searchText}%");
+
+            using var reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                assets.Add(new AssetDisplay
+                {
+                    Id = reader.GetInt32(0),
+                    AssetCode = reader.GetString(1),
+                    Name = reader.GetString(2),
+                    Brand = reader.GetString(3),
+                    Category = reader.GetString(4),
+                    Model = reader.IsDBNull(5) ? "" : reader.GetString(5),
+                    SerialNumber = reader.IsDBNull(6) ? "" : reader.GetString(6),
+                    Location = reader.IsDBNull(7) ? "" : reader.GetString(7),
+                    Receiver = reader.IsDBNull(8) ? "" : reader.GetString(8),
+                    Status = reader.IsDBNull(9) ? "" : reader.GetString(9),
+                    Price = reader.GetDouble(10),
+                    PurchaseDate = reader.IsDBNull(11)
+                        ? null
+                        : DateTime.Parse(reader.GetString(11))
+                });
+            }
+
+            return assets;
+        }
+
+
     }
 }

@@ -58,9 +58,10 @@
                         Margin="5"/>
 
                 <Button Content="خروجی Excel"
-                        Width="140"
-                        Height="40"
-                        Margin="20,5,5,5"/>
+        Width="140"
+        Height="40"
+        Margin="20,5,5,5"
+        Click="btnExportExcel_Click"/>
 
                 <Button Content="خروجی PDF"
                         Width="140"

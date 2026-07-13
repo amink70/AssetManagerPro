@@ -1,4 +1,5 @@
 ﻿<UserControl x:Class="AssetManagerPro.Views.AssetManagementView"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Background="#F3F4F6">
@@ -43,9 +44,11 @@
         Style="{StaticResource ModernButton}"
         Click="btnHistory_Click"/>
 
-            <TextBox Width="250"
-                     Height="40"
-                     Margin="30,0,0,0"/>
+            <TextBox x:Name="txtSearch"
+         Style="{StaticResource SearchTextBox}"
+         Width="250"
+         Margin="30,0,0,0"
+         TextChanged="txtSearch_TextChanged"/>
         </StackPanel>
 
         <!-- جدول -->
@@ -61,28 +64,48 @@
             <DataGrid.Columns>
 
                 <DataGridTextColumn Header="کد اموال"
-                            Binding="{Binding AssetCode}"
-                            Width="120"/>
+                        Binding="{Binding AssetCode}"
+                        Width="110"/>
 
                 <DataGridTextColumn Header="نام کالا"
-                            Binding="{Binding Name}"
-                            Width="200"/>
+                        Binding="{Binding Name}"
+                        Width="180"/>
+
+                <DataGridTextColumn Header="برند"
+                        Binding="{Binding Brand}"
+                        Width="120"/>
 
                 <DataGridTextColumn Header="دسته‌بندی"
-                            Binding="{Binding Category}"
-                            Width="150"/>
+                        Binding="{Binding Category}"
+                        Width="130"/>
+
+                <DataGridTextColumn Header="مدل"
+                        Binding="{Binding Model}"
+                        Width="120"/>
+
+                <DataGridTextColumn Header="شماره سریال"
+                        Binding="{Binding SerialNumber}"
+                        Width="170"/>
 
                 <DataGridTextColumn Header="محل استقرار"
-                            Binding="{Binding Location}"
-                            Width="180"/>
+                        Binding="{Binding Location}"
+                        Width="150"/>
+
+                <DataGridTextColumn Header="تحویل‌گیرنده"
+                        Binding="{Binding Receiver}"
+                        Width="160"/>
 
                 <DataGridTextColumn Header="وضعیت"
-                            Binding="{Binding Status}"
-                            Width="120"/>
+                        Binding="{Binding Status}"
+                        Width="110"/>
 
-                <DataGridTextColumn Header="تاریخ ثبت"
-                            Binding="{Binding PurchaseDate}"
-                            Width="150"/>
+                <DataGridTextColumn Header="قیمت"
+                        Binding="{Binding Price,StringFormat={}{0:N0}}"
+                        Width="120"/>
+
+                <DataGridTextColumn Header="تاریخ خرید"
+                        Binding="{Binding PurchaseDate,StringFormat=yyyy/MM/dd}"
+                        Width="130"/>
 
             </DataGrid.Columns>
 
